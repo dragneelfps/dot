@@ -1,9 +1,7 @@
-vim.opt.number = true         -- Show line numbers
-vim.opt.relativenumber = true -- Relative numbers help with jumping
-vim.opt.shiftwidth = 4        -- Python standard indent
-vim.opt.expandtab = true      -- Spaces > Tabs
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 
 require('vim._core.ui2').enable()
-
-

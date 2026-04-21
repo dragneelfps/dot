@@ -1,4 +1,3 @@
--- Set leader key to Space
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -14,7 +13,8 @@ map("n", "<leader>e", function() Snacks.explorer() end, { desc = "File Explorer"
 
 -- find
 map("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
-map("n", "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, { desc = "Find Config File" })
+map("n", "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,
+    { desc = "Find Config File" })
 map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find Files" })
 map("n", "<leader>fg", function() Snacks.picker.git_files() end, { desc = "Find Git Files" })
 map("n", "<leader>fp", function() Snacks.picker.projects() end, { desc = "Projects" })
@@ -31,5 +31,3 @@ map("n", "gao", function() Snacks.picker.lsp_outgoing_calls() end, { desc = "C[a
 map("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Symbols" })
 map("n", "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, { desc = "LSP Workspace Symbols" })
 map("n", "<leader>K", ":Lspsaga code_action<CR>", { desc = "LSP Code Actions" })
-
-
