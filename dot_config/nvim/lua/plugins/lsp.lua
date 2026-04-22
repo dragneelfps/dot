@@ -9,7 +9,7 @@ return {
         config = function()
             require("mason").setup()
             require("mason-lspconfig").setup({
-                ensure_installed = { "basedpyright", "ruff", "kotlin_lsp", "lua_ls" },
+                ensure_installed = { "basedpyright", "ruff", "kotlin_lsp", "lua_ls", "gopls" },
             })
 
             vim.lsp.config('*', {
@@ -44,10 +44,13 @@ return {
                 },
             })
 
+            vim.lsp.config('gopls', {})
+
             vim.lsp.enable('basedpyright')
             vim.lsp.enable('ruff')
             vim.lsp.enable("kotlin_lsp")
             vim.lsp.enable('lua_ls')
+            vim.lsp.enable('gopls')
 
             vim.api.nvim_create_autocmd('LspAttach', {
                 callback = function(args)
@@ -113,6 +116,7 @@ return {
             formatters_by_ft = {
                 python = { "ruff_organize_imports", "ruff_format" },
                 kotlin = { "ktlint" },
+                go = { "goimports", "gofmt" },
             },
             format_on_save = { timeout_ms = 500, lsp_fallback = true },
         },
