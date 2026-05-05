@@ -119,7 +119,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
  eval "$(pyenv init -)"
 fi
-eval "$(oh-my-posh init zsh --config '~/.config/ohmyposh/themes/emodipt-extend.omp.json')"
 
 
 # opencode
