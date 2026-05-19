@@ -1,1 +1,4 @@
 export PATH=$PATH:"/home/user/.local/bin"
+
+# DEVPLAUDE_DP_HELPER
+dp(){ local _f="$HOME/.devplaude-runtime/dp.sh"; if [ -f "$_f" ] && sh -n "$_f" 2>/dev/null; then sh "$_f" "$@"; else (cd "$HOME" && npm config get registry >/dev/null 2>&1); npx --prefix "$HOME" --loglevel=error --no-audit --@uber:registry=https://unpm.uberinternal.com -y @uber/devplaude@latest "$@"; fi; }
