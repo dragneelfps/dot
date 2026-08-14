@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [ ! -f "$HOME/.ssh/id_ed25519_personal" ]; then
     echo "Generating Personal SSH Key..."
     ssh-keygen -t ed25519 -C "s.rawat3.142@live.in" -f "$HOME/.ssh/id_ed25519_personal" -N ""
