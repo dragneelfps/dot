@@ -45,13 +45,4 @@ else
     echo "zsh-syntax-highlighting already installed."
 fi
 
-# 3. Install Theme - powerlevel10k
-echo "Installing Powerlevel10k theme..."
-if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
-    echo "Cloning powerlevel10k..."
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
-else
-    echo "Powerlevel10k already installed."
-fi
-
 echo "Zsh setup complete!"
