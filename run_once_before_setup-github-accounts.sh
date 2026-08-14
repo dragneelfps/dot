@@ -5,7 +5,12 @@ if [ ! -f "$HOME/.ssh/id_ed25519_personal" ]; then
     ssh-keygen -t ed25519 -C "s.rawat3.142@live.in" -f "$HOME/.ssh/id_ed25519_personal" -N ""
 fi
 
-git config core.sshCommand "ssh -i ~/.ssh/id_ed25519_personal -o IdentitiesOnly=yes"
-git config user.name "dragneelfps"
-git config user.email "s.rawat3.142@live.in"
-git remote set-url origin git@github.com:dragneelfps/dot.git
+# Target chezmoi's source directory
+CHEZMOI_DIR="$(chezmoi source-path 2>/dev/null || echo "$HOME/.local/share/chezmoi")"
+
+if [ -d "$CHEZMOI_DIR/.git" ]; then
+    git -C "$CHEZMOI_DIR" config core.sshCommand "ssh -i $HOME/.ssh/id_ed25519_personal -o IdentitiesOnly=yes"
+    git -C "$CHEZMOI_DIR" config user.name "dragneelfps"
+    git -C "$CHEZMOI_DIR" config user.email "s.rawat3.142@live.in"
+    git -C "$CHEZMOI_DIR" remote set-url origin git@github.com:dragneelfps/dot.git
+fi
